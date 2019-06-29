@@ -1,0 +1,4 @@
+1;Default;Allow Access to All WLANs;;Disallowed;Disallowed;Allow access to all WLANs;;Disallowed
+2;aluno;Permite acesso a Rede-Alunos;;Disallowed;Disallowed;Allow Specify WLAN access;Rede-Alunos;Disallowed
+3;professor;Permite acesso a Rede-Professores;;Disallowed;Disallowed;Allow Specify WLAN access;Rede-Professores;Disallowed
+4;servidor;Permite acesso a Rede-Servidores;;Disallowed;Disallowed;Allow Specify WLAN access;Rede-Servidores;Disallowed
