@@ -1,0 +1,202 @@
+<html lang="pt-BR">
+    <head>
+
+        <meta charset="UTF-8">
+        <title>ZoneDirector - Gerenciamento de Usuários</title>
+
+        <link href="themes/redmond/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+        <link href="scripts/jtable/themes/metro/blue/jtable.min.css" rel="stylesheet" type="text/css" />
+        <link href="style.css" rel="stylesheet" type="text/css" />
+        <link href="menu.css" rel="stylesheet" type="text/css" />
+        
+        <script src="scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
+        <script src="scripts/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
+        <script src="scripts/jtable/jquery.jtable.js" type="text/javascript"></script>
+        <script src="scripts/main.pt-BR.js" type="text/javascript"></script>
+        <script src="scripts/jtable/localization/jquery.jtable.pt-BR.js" type="text/javascript"></script>
+		<!-- <script src="scripts/main.js" type="text/javascript"></script> -->
+
+		<link rel="shortcut icon" href="images/favicon.ico">
+    </head>
+    <body>
+
+        <div id="dialog-message" title="Gerando">
+            <div id="genWait" class="dialogOpt" >
+                <p class="genParag">Por favor aguarde, pode demorar um pouco...</p>
+                <img src="images/loading.gif" alt="loading" />
+            </div>
+            <div id='genDown' class="dialogOpt" >
+                <p class="genParag">Clique na imagem abaixo para baixar seu arquivo de backup</p>
+                <a href="" download=""><img src="images/Download.png" alt="loading" /></a>
+            </div>
+            <div id='genResp' class="dialogOpt" >
+                <p class="genParag">Sucesso</p>
+                <p id="genSuccessMsg" class="" class="response-msg"></p>
+                <textarea class="scrollabletextbox" id="responseBox" readonly></textarea>
+            </div>
+            <div id='genErro' class="dialogOpt" >
+                <p class="genParag">Ocorreu um erro:</p>
+                <p id="genErroMsg" class="response-msg"></p>
+            </div>
+        </div>
+        
+        <div id="dialog-add" title="Adicionar ou Atualizar Usuários">
+            <span class="file-span">
+                Selecione o formato dos dados e o arquivo local ou cole o conteúdo no campo abaixo:
+            </span>
+            <div class="input-file-box">
+                <input type="file" id="addFile" name="addFile" accept='.json,text/xml,text/plain' class="input-file ui-widget" />
+                <img class="file-loading" src="images/loading.gif" alt="loading" />
+            </div>
+            <div class="divSelType">
+                <div class="set-left">
+                    <fieldset id="addFileType" name="fileType" class="type-fieldset">
+                        <legend>Formato:</legend>
+                        <span class="set-left"><input type="radio" name="fileType" value="json">JSON</span>
+                        <span class="in-line"><input type="radio" name="fileType" value="xml">XML</span>
+                        <span class="in-line"><input type="radio" name="fileType" value="txt">TXT</span>
+                    </fieldset>
+                </div>
+                <div class="optSel">
+                    Caractere delimitador:
+                    <input id="addDeliChar"  disabled="disabled" name="deliChar" value=";" />
+                </div>
+            </div>
+            <div class="div-textarea">
+                <div class="ex-textarea">
+                    <span>Formato esperado do conteúdo:</span>
+                    <textarea  disabled="disabled" class="scrollabletextbox" readonly id="inputExample"></textarea>
+                </div>
+                <div class="dt-textarea">
+                    <span>Conteúdo do arquivo:</span>
+                    <textarea class="scrollabletextbox" id="addInput" name="addInput"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div id="dialog-backup" title="Criar Backup">
+            <div id="bkp-content">
+                <div id="bkp-role">
+                    <span class="set-left">Da regra:</span>
+                    <select id="bkpRole" name="srchRole" class="srchSel" >
+                        <option selected="selected" value="">Todas</option>
+                    </select>
+                </div>
+                <fieldset id="bkpFileType" class="type-fieldset">
+                    <legend>Formato:</legend>
+                    <span class="set-left"><input type="radio" name="fileType" value="json">JSON</span>
+                    <span class="in-line"><input type="radio" name="fileType" value="xml">XML</span>
+                    <span class="in-line"><input type="radio" name="fileType" value="txt">TXT</span>
+                </fieldset>
+                <div id="bkp-delichar">
+                    Caractere delimitador:
+                    <input id="bkpDeliChar"value=";" />
+                </div>
+            </div>
+        </div>
+
+        <div id="dialog-remove" title="Remover Usuários">
+            <div class="removeBy">
+                <fieldset id="delType" class="type-fieldset">
+                    <legend>Remover por</legend>
+                    <span class="set-left"><input type="radio" name="removeType" value="file">Entrada manual</span>
+                    <span class="in-line"><input type="radio" name="removeType" value="role">Regra</span>
+                </fieldset>
+                <div id="remove-role">
+                    <span>Regra:</span>
+                    <select id="removeByRole" name="srchRole" class="srchSel">
+                        <option selected="selected" value="">Todas</option>
+                    </select>
+                </div>
+            </div>
+            <span class="file-span">
+                Selecione o formato dos dados e o arquivo local ou cole o conteúdo no campo abaixo (formato usado para adicionar usuários suportado):
+            </span>
+            <div class="input-file-box">
+                <input type="file" id="removeFile" name="removeFile" accept='.json,text/xml,text/plain' class="input-file ui-widget" />
+                <img class="file-loading" src="images/loading.gif" alt="loading" align="absmiddle" hspace="5"/>
+            </div>
+            <div class="divSelType">
+                <fieldset id="removeFileType" name="removeFileType" class="type-fieldset">
+                    <legend>Formato:</legend>
+                    <span class="set-left"><input type="radio" name="fileType" value="json">JSON</span>
+                    <span class="in-line"><input type="radio" name="fileType" value="xml">XML</span>
+                    <span class="in-line"><input type="radio" name="fileType" value="txt">TXT</span>
+                </fieldset>
+                <div class="optSel">
+                    Caractere delimitador:
+                    <input id="delDeliChar" disabled="disabled" name="deliChar" value=";" />
+                </div>
+            </div>
+            <div class="div-textarea">
+                <div class="ex-textarea">
+                    <span>Formato esperado do conteúdo:</span>
+                    <textarea disabled="disabled" class="scrollabletextbox" readonly id="removeExample"></textarea>
+                </div>
+                <div class="dt-textarea">
+                    <span>Conteúdo do arquivo:</span>
+                    <textarea class="scrollabletextbox" id="removeInput" name="removeInput"></textarea>
+                </div>
+            </div>
+        </div>
+		
+		<div class="pageContent">
+
+		
+            <div class="header">	
+				<img id="ruckusLogo" src="images/ruckus_logo.png" alt="logo"/>
+				<img id="siteLogo" src="images/logo.png" alt="logo"/>
+				<div class="headerRight">
+					<!-- <a href="index.html"><img src="images/pt_flag.png" align="absmiddle" alt="português" hspace="5">Português</a> -->
+					<a href="index_en.html"><img src="images/en_flag.png" align="absmiddle" alt="english" hspace="5">English</a>                                              		
+					<img id="zdImage" src="images/zonedirector.png" alt="ZoneDirector"/>
+				</div>
+            </div>
+
+            <div class="content">
+                <div class="sidenav">
+                    <div id='cssmenu'>
+						<ul>
+							<li><a onclick="openAddDialog();"><span>Adicionar ou Atualizar</span></a></li>
+							<li><a onclick="openRemoveDialog();"><span>Remover usuários</span></a></li>
+							<li class='last'><a onclick="openBackupDialog();"><span>Criar Backup</span></a></li>
+						</ul>
+					</div>
+                </div>
+                <div class="dataTable">
+                    <div class="jTable">
+                        <div class="filtering">
+							<div class="insideFilter">
+								<form id="filterForm">
+									<span class="inputLabel">Filtrar por:</span>
+									<select id="srchType" name="srchType" class="srchSel">
+										<option selected="selected" value="role">Regra</option>
+										<option value="name">Nome</option>
+										<option value="fullName">Nome Completo</option>
+									</select>
+									<input type="text" name="srchInput" id="srchInput" class="srchSel" style="display: none;"/>
+									<select id="srchRole" name="srchRole" class="srchSel">
+										<option selected="selected" value="">Todas</option>
+									</select>
+									<button type="submit" class="ui-button ui-widget ui-state-default ui-corner-all" id="LoadRecordsButton">Carregar registros</button>
+								</form>
+							</div>
+                        </div>
+                        <div id="UserTableContainer"></div>
+                        <br />
+                        <button type="button" class="ui-button ui-widget ui-state-default ui-corner-all" id="DeleteAllButton">
+                            Excluir registros selecionados
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <span class="footSpan">Projetado e desenvolvido por Josemar Souza © 2017</span>
+            </div>
+
+        </div>
+
+        <script src="scripts/main.js" type="text/javascript"></script>
+    </body>
+</html>

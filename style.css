@@ -1,0 +1,355 @@
+@charset "UTF-8";
+
+body {
+	display: block;
+	width: 100%;
+	margin: 4px 0 0 0;
+}
+
+#ruckusLogo{
+	/* left: 150px; */
+	/* top: 13px; */
+	margin: 13px 0 0 150px;
+	height: 70px;
+}
+
+#siteLogo{
+	height: 87px;
+	width: 380px;
+	margin: 6px auto 0 auto;
+	display: block;
+}
+
+#zdImage{
+	float: right;
+	height: 50px;
+	margin-top: 10px;
+}
+
+#cssmenu{
+    height: 100%;
+}
+
+.headerRight{
+	height: 90px;
+	width: 236px;
+	margin: 4px 150px 0 0;
+}
+
+.headerRight a{
+	-moz-transition: 0.5s all;
+	text-decoration: none;
+	color: #337ab7;
+	background-color: transparent;
+	font-family: Roboto, sans-serif;
+	font-size: 15px;
+	line-height: 1.42857143;
+	box-sizing: border-box;
+	float: right;
+}
+
+
+.pageContent{
+	margin: 0 auto;
+	width: 100%;
+	display: table;
+}
+
+.header {
+	display: flex;
+	height: 100px;
+	justify-content: space-between;
+	border-bottom: 4px solid #1b9bff;
+}
+
+.content {
+	display: flex;
+	flex-wrap: 1;
+	height: 100%;
+	border-bottom: 4px solid #1b9bff;
+}
+
+.footer {
+	display: block;
+	height: 35px;
+	width: 100%;
+	text-align: center;
+}
+
+.footSpan {
+	display: block;
+	margin-top: 12px;
+	font-family: 'Segoe UI Semilight','Open Sans',Verdana,Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	word-spacing: 3px;
+}
+
+.sidenav {
+	display: block;
+	float: left;
+	text-align: center;
+	width: 250px;
+	min-height: 400px;
+	height: auto;
+	background-color: #333333;
+}
+
+.dataTable {
+	flex-grow: 1;
+	text-align: center;
+	float: left;
+	min-height: 400px;
+	border-left: 5px solid #1b9bff;
+	padding-right: 250px;
+}
+
+.jTable {
+	display: block;
+	width: 95%;
+	margin: 15px auto;
+	max-width: 1200px;
+}
+
+.filtering {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	text-align: center;
+	height: 75px;
+	background-color: #2d89ef;
+}
+
+.insideFilter{
+	background-color: #0b67cd;
+	flex-grow: 1;
+	height: auto;
+	margin: 8px;
+	float: left;
+}
+
+.inputLabel{
+	font-size: 20px;
+	color: #fff;
+	font-weight: bold;
+}
+
+.set-left{
+    float: left;
+}
+
+.srchSel {
+	margin-left: 15px;
+	width: 125px;
+}
+
+#LoadRecordsButton{
+	font-size: 15px;
+	padding: 4px 16px;
+	margin: -4px 0 0 25px;
+}
+
+.filtering form{
+	margin-top: 15px;
+}
+
+#UserTableContainer {
+	margin-top: 10px;
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+
+#DeleteAllButton {
+	display: block;
+	margin: 0 auto;
+}
+
+.divSelType{
+	width: auto;
+	margin-top: 10px;
+	height: 65px;
+	text-align: center;
+	display: block;
+}
+
+.in-line{
+	display: block;
+	float: left;
+	margin-left: 15px;
+}
+
+#delType{
+	height: 40px;
+	width: 250px;
+	float: left;
+}
+
+.type-fieldset{
+	height: 40px;
+	width: 220px;
+	float: left;
+}
+
+.dialogOpt{
+    width: auto;
+    text-align: center;
+    display: none;
+}
+
+#genDown img{
+    margin: 0 auto;
+    height: 75px;
+}
+
+#responseBox{
+    font-size: 75%;
+    margin-top: 15px;
+}
+
+.response-msg{
+    margin: 15px auto 0 auto;
+}
+
+#addDeliChar{
+    width: 20px;
+    margin-right: 20px;
+}
+
+#bkp-content{
+    width:auto;
+    display: block;
+    text-align: center;
+    height: 140px;
+}
+
+#bkpDeliChar{
+    width: 20px;
+}
+
+#bkpRole{
+    float: left;
+    margin-left:10px;
+}
+
+#bkpFileType{
+    margin-top: 12px;
+}
+
+#remove-role{
+    float: left;
+    margin: 3px 0 0 20px;
+    width:auto;
+    display: block;
+}
+
+#remove-role span{
+    float: left;
+    margin-top:25px;
+}
+
+#removeByRole{
+    float: left;
+    margin: 23px 0 0 10px;
+}
+
+.file-span{
+    margin-top: 10px;
+    width: 100%;
+    height: auto;
+}
+
+#bkp-role{
+    width:auto;
+    display: block;
+    text-align: center;
+    height: 25px;
+    margin-top: 5px;
+}
+
+#bkp-delichar{
+    width: auto;
+    display: block;
+    margin-top:90px;
+}
+
+.optSel{
+	display: block;
+	margin: 24px 0 0 20px;
+	float: left;
+}
+
+.div-textarea{
+    width: auto;
+    display: block;
+    margin-top: 10px;
+    height: auto;
+}
+
+.div-textarea textarea{
+    font-size: 75%;
+}
+
+.ex-textarea {
+    float: left;
+    width: 280px;
+    display: block;
+    height: auto;
+}
+
+.dt-textarea{
+    float: left;
+    margin-left: 30px;
+    width: 350px;
+    display: block;
+    height: auto;
+}
+
+.removeBy{
+	display: block;
+	width: auto;
+	height: 75px;
+}
+
+#genWait img{
+    width:100px;
+    height:100px;
+    margin: 0 auto 15px 0;
+}
+
+#delDeliChar{
+    width: 20px;
+}
+
+.input-file{
+    width: 90%;
+    margin-top: 10px;
+    float: left;
+}
+
+.file-loading{
+    float: right;
+    width: 32px;
+    height: 32px;
+    margin: 8px 25px 0 0;
+    display: none;
+}
+
+.input-file-box{
+    width: auto;
+    height: 45px;
+}
+
+.scrollabletextbox{
+	width: 100%;
+	resize: none;
+	font-size: 75%;
+	height: 130px;
+	overflow: scroll;
+}
+
+.genParag{
+    font-weight: bold;
+    font-size: 18px;
+    margin: 10px 15px 15px 15px;
+}
